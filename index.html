@@ -13,13 +13,19 @@
     window.onload = function () {
       const randomIndex = Math.floor(Math.random() * videoLinks.length);
       const chosenLink = videoLinks[randomIndex];
+
+      // Set the manual link just in case redirect fails
       document.getElementById("manualLink").href = chosenLink;
-      window.location.href = chosenLink;
+
+      // Wait briefly before redirecting (helps prevent browser warnings)
+      setTimeout(() => {
+        window.location.href = chosenLink;
+      }, 500);
     };
   </script>
 </head>
 <body>
-  <p>Redirecting to a random video...</p>
-  <p>If you're not redirected, <a id="manualLink" href="#">click here</a>.</p>
+  <p>Redirecting you to a random video...</p>
+  <p>If nothing happens, <a id="manualLink" href="#">click here</a>.</p>
 </body>
 </html>
